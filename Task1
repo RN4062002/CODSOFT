@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class GuessingGame {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int score = 0;
+        boolean playAgain = true;
+        while (playAgain) {
+            int number = (int) (Math.random() * 100 + 1);
+            int attempts = 5;
+            System.out.println("Guess a number between 1 and 100. You have " + attempts + " attempts.");
+            while (attempts > 0) {
+                System.out.print("Enter your guess: ");
+                int guess = input.nextInt();
+                if (guess == number) {
+                    System.out.println("Congratulations! You guessed the number.");
+                    score += attempts;
+                    break;
+                } else if (guess < number) {
+                    System.out.println("Your guess is too low.");
+                } else {
+                    System.out.println("Your guess is too high.");
+                }
+                attempts--;
+                if (attempts > 0) {
+                    System.out.println("You have " + attempts + " attempts left.");
+                }
+            }
+            if (attempts == 0) {
+                System.out.println("Sorry, you ran out of attempts. The number was " + number + ".");
+            }
+            System.out.print("Do you want to play again? (y/n): ");
+            String playAgainAnswer = input.next();
+            if (!playAgainAnswer.equalsIgnoreCase("y")) {
+                playAgain = false;
+            }
+        }
+        System.out.println("Your score is " + score + ".");
+    }
+}
