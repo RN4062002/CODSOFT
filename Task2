@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Task2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your subject :");
+        int subject = sc.nextInt();
+
+        int sum = 0;
+        for(int i=1;i<=subject;i++){
+            System.out.println("Enter your subject "+i+" marks:");
+            int mark = sc.nextInt();
+            if(mark > 100){
+                System.out.println("Please enter valid marks.");
+            }
+            sum += mark;
+        }
+        int average = sum/subject;
+        System.out.println("Total marks of your subject is :"+sum);
+        System.out.println("Averge is total subject is:"+average);
+
+        if(average >= 90 && average< 100){
+            System.out.println("You got A+ Grade");
+        } else if (average <=90 && average >= 81) {
+            System.out.println("You got A Grade");
+        } else if (average <=80 && average >=71) {
+            System.out.println("you got B++ Grade");
+        } else if (average <=70 && average>=61) {
+            System.out.println("you Got B Grade");
+        } else if (average <=60 && average>=51) {
+            System.out.println("You Got C+ Grade");
+        } else if (average <=50 && average>=41) {
+            System.out.println("You Got C Grade");
+        } else if (average <=40 && average>=35) {
+            System.out.println("You Got D Grade");
+        } else {
+            System.out.println("You Failed in Examination");
+        }
+
+
+    }
+}
